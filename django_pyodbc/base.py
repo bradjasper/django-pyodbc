@@ -27,7 +27,9 @@ from django.db.backends import BaseDatabaseWrapper, BaseDatabaseFeatures, BaseDa
 from django.db.backends.signals import connection_created
 from django.conf import settings
 from django import VERSION as DjangoVersion
-if DjangoVersion[:2] == (1,6):
+if DjangoVersion[:2] == (1,7):
+    _DJANGO_VERSION = 17
+elif DjangoVersion[:2] == (1,6):
     _DJANGO_VERSION = 16
 elif DjangoVersion[:2] == (1,5):
     _DJANGO_VERSION = 15
