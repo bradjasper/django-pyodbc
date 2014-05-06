@@ -404,6 +404,8 @@ class CursorWrapper(object):
         return tuple(fp)
 
     def execute(self, sql, params=()):
+        # Fix MSSQL barfing on unicode strings
+        sql = sql.encode("utf-8")
         self.last_sql = sql
         sql = self.format_sql(sql, len(params))
         params = self.format_params(params)
